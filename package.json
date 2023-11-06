@@ -1,0 +1,20 @@
+{
+  "name": "covidph-stats-discord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/bot.js",
+  "scripts": {
+    "test": "node .",
+    "start": "node src/bot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.0",
+    "discord.js": "^14.0.1",
+    "@discordjs/rest": "^1.0.0",
+    "chalk": "^4.1.2",
+    "dotenv": "^16.0.1",
+    "discord-api-types": "^0.36.2"
+  }
+}
