@@ -7,7 +7,6 @@ import {
   Collection,
   Events,
   GatewayIntentBits,
-  MessageComponentInteraction,
 } from "discord.js";
 const fs = require("fs");
 
@@ -53,9 +52,16 @@ client.on(Events.InteractionCreate, async (interaction: BaseInteraction) => {
     await command.execute(interaction);
   } catch (error) {
     console.error(error);
-    await interaction.reply({
-      content: "Bobbert is tired... zzzz",
-    });
+    const content = "Bobbert is tired... zzzz";
+    if (!interaction.replied) {
+      await interaction.reply({
+        content,
+      });
+    } else {
+      await interaction.followUp({
+        content,
+      });
+    }
   }
 });
 
