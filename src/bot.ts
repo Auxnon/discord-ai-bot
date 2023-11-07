@@ -58,7 +58,7 @@ client.on(Events.InteractionCreate, async (interaction: BaseInteraction) => {
         content,
       });
     } else {
-      await interaction.followUp({
+      interaction.editReply({
         content,
       });
     }
