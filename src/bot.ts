@@ -53,7 +53,7 @@ client.on(Events.InteractionCreate, async (interaction: BaseInteraction) => {
   } catch (error) {
     console.error(error);
     const content = "Bobbert is tired... zzzz";
-    if (!interaction.replied) {
+    if (!interaction.replied && !interaction.deferred) {
       await interaction.reply({
         content,
       });
