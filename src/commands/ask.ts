@@ -20,8 +20,8 @@ const ollama = new Ollama({
 export async function execute(interaction: CommandInteraction) {
   const question = interaction.options.get("question")?.value as string;
   const repeat = `${interaction.user.toString()} asked "${question}"`;
-  const canReply = interaction.channel;
-  let whomessage = await interaction.channel?.send(repeat);
+  const canReplyChannel = interaction.channel;
+  let whoMessage = await interaction.channel?.send(repeat);
   await interaction.deferReply();
   console.log(question);
   const stream = await ollama.stream(question);
@@ -35,8 +35,8 @@ export async function execute(interaction: CommandInteraction) {
   output ||= "(੭｡╹▿╹｡)੭ query failed!";
   console.log(`Output: ${output}`);
 
-  if (!canReply) {
-    await interaction.followUp({
+  if (!canReplyChannel) {
+    await interaction.editReply({
       content: output,
     });
     return;
@@ -44,7 +44,7 @@ export async function execute(interaction: CommandInteraction) {
     await interaction.followUp({
       content: repeat,
     });
-    await whomessage?.edit(output);
+    await whoMessage?.edit(output);
   }
 
   //  m?.edit(repeat);
