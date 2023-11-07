@@ -2,8 +2,8 @@ const { SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("hello")
-    .setDescription("Check the API used by COVIDPH Stats Discord Bot."),
+    .setName("ask")
+    .setDescription("Ask a question to the bot."),
   async execute(interaction, client) {
     const message = await interaction.deferReply({
       fetchReply: true,
